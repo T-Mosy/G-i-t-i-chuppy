@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bạn có mập không?</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: url("https://dulichdaiviet.vn/uploaded/chiemnguongvedepcuavuontuliplonnhachaua2.jpg")
+          no-repeat center center fixed;
+        background-size: cover;
+        font-family: "Arial", sans-serif;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+      }
+      .button-container {
+        display: flex;
+        gap: 20px;
+      }
+      button {
+        padding: 15px 30px;
+        font-size: 1.5em;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: transform 0.2s, background-color 0.3s;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+      #yesBtn {
+        background-color: #ff6f91;
+        color: white;
+      }
+      #yesBtn:hover {
+        transform: scale(1.1);
+        background-color: #ff4d73;
+      }
+      #noBtn {
+        background-color: #4caf50;
+        color: white;
+        position: relative;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bạn có mập không?</h1>
+    <div class="button-container">
+      <button id="yesBtn" onclick="sayYes()">Có</button>
+      <button id="noBtn">Không</button>
+    </div>
+
+    <script>
+      const noBtn = document.getElementById("noBtn");
+
+      // Xử lý khi nhấn nút "Có"
+      function sayYes() {
+        alert("Hihi, bạn thật thà ghê! 😊");
+      }
+
+      // Xử lý khi cố nhấn nút "Không"
+      noBtn.addEventListener("mouseover", moveNoButton);
+      noBtn.addEventListener("click", moveNoButton);
+
+      function moveNoButton() {
+        const maxX = window.innerWidth - noBtn.offsetWidth;
+        const maxY = window.innerHeight - noBtn.offsetHeight;
+        const newX = Math.random() * maxX;
+        const newY = Math.random() * maxY;
+        noBtn.style.position = "absolute";
+        noBtn.style.left = `${newX}px`;
+        noBtn.style.top = `${newY}px`;
+      }
+    </script>
+  </body>
+</html>
